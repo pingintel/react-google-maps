@@ -44,6 +44,7 @@ type AdvancedMarkerEventProps = {
   onDrag?: (e: google.maps.MapMouseEvent) => void;
   onDragStart?: (e: google.maps.MapMouseEvent) => void;
   onDragEnd?: (e: google.maps.MapMouseEvent) => void;
+  onRightClick?: (e: google.maps.MapMouseEvent) => void;
 };
 
 export type AdvancedMarkerProps = PropsWithChildren<
@@ -87,6 +88,7 @@ function useAdvancedMarker(props: AdvancedMarkerProps) {
     onDrag,
     onDragStart,
     onDragEnd,
+    onRightClick,
     collisionBehavior,
     clickable,
     draggable,
@@ -172,6 +174,7 @@ function useAdvancedMarker(props: AdvancedMarkerProps) {
   useMapsEventListener(marker, 'drag', onDrag);
   useMapsEventListener(marker, 'dragstart', onDragStart);
   useMapsEventListener(marker, 'dragend', onDragEnd);
+  useMapsEventListener(marker, 'rightclick', onRightClick);
 
   return [marker, contentContainer] as const;
 }

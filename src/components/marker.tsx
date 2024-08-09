@@ -18,6 +18,7 @@ type MarkerEventProps = {
   onDragEnd?: (e: google.maps.MapMouseEvent) => void;
   onMouseOver?: (e: google.maps.MapMouseEvent) => void;
   onMouseOut?: (e: google.maps.MapMouseEvent) => void;
+  onRightClick?: (e: google.maps.MapMouseEvent) => void;
 };
 
 export type MarkerProps = Omit<google.maps.MarkerOptions, 'map'> &
@@ -36,6 +37,7 @@ function useMarker(props: MarkerProps) {
     onDragEnd,
     onMouseOver,
     onMouseOut,
+    onRightClick,
     ...markerOptions
   } = props;
 
@@ -79,6 +81,7 @@ function useMarker(props: MarkerProps) {
     if (onDragEnd) gme.addListener(m, 'dragend', onDragEnd);
     if (onMouseOver) gme.addListener(m, 'mouseover', onMouseOver);
     if (onMouseOut) gme.addListener(m, 'mouseout', onMouseOut);
+    if (onRightClick) gme.addListener(m, 'rightclick', onRightClick);
 
     marker.setDraggable(Boolean(draggable));
 
@@ -93,7 +96,8 @@ function useMarker(props: MarkerProps) {
     onDragStart,
     onDragEnd,
     onMouseOver,
-    onMouseOut
+    onMouseOut,
+    onRightClick
   ]);
 
   // update markerOptions (note the dependencies aren't properly checked
