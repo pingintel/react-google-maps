@@ -174,7 +174,7 @@ function useAdvancedMarker(props: AdvancedMarkerProps) {
   useMapsEventListener(marker, 'drag', onDrag);
   useMapsEventListener(marker, 'dragstart', onDragStart);
   useMapsEventListener(marker, 'dragend', onDragEnd);
-  useMapsEventListener(marker, 'rightclick', onRightClick);
+  useMapsEventListener(marker, 'mouseup', onRightClick);
 
   return [marker, contentContainer] as const;
 }

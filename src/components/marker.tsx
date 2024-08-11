@@ -22,7 +22,9 @@ type MarkerEventProps = {
 };
 
 export type MarkerProps = Omit<google.maps.MarkerOptions, 'map'> &
-  MarkerEventProps;
+  MarkerEventProps & {
+    children?: React.ReactNode;
+  };
 
 export type MarkerRef = Ref<google.maps.Marker | null>;
 
@@ -38,6 +40,7 @@ function useMarker(props: MarkerProps) {
     onMouseOver,
     onMouseOut,
     onRightClick,
+    children,
     ...markerOptions
   } = props;
 

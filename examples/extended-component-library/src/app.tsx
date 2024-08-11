@@ -121,7 +121,7 @@ const App = () => {
                     background={'#FBBC04'}
                     glyphColor={'#000'}
                     borderColor={'#000'}
-                  />
+                  /> 
                 </AdvancedMarker>
               )}
               <ControlPanel />

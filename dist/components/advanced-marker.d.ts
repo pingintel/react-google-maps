@@ -1,0 +1,56 @@
+import React, { CSSProperties } from 'react';
+import type { PropsWithChildren } from 'react';
+export interface AdvancedMarkerContextValue {
+    marker: google.maps.marker.AdvancedMarkerElement;
+}
+/**
+ * Copy of the `google.maps.CollisionBehavior` constants.
+ * They have to be duplicated here since we can't wait for the maps API to load to be able to use them.
+ */
+export declare const CollisionBehavior: {
+    readonly REQUIRED: "REQUIRED";
+    readonly REQUIRED_AND_HIDES_OPTIONAL: "REQUIRED_AND_HIDES_OPTIONAL";
+    readonly OPTIONAL_AND_HIDES_LOWER_PRIORITY: "OPTIONAL_AND_HIDES_LOWER_PRIORITY";
+};
+export type CollisionBehavior = (typeof CollisionBehavior)[keyof typeof CollisionBehavior];
+export declare const AdvancedMarkerContext: React.Context<AdvancedMarkerContextValue | null>;
+type AdvancedMarkerEventProps = {
+    onClick?: (e: google.maps.MapMouseEvent) => void;
+    onDrag?: (e: google.maps.MapMouseEvent) => void;
+    onDragStart?: (e: google.maps.MapMouseEvent) => void;
+    onDragEnd?: (e: google.maps.MapMouseEvent) => void;
+    onRightClick?: (e: google.maps.MapMouseEvent) => void;
+};
+export type AdvancedMarkerProps = PropsWithChildren<Omit<google.maps.marker.AdvancedMarkerElementOptions, 'gmpDraggable' | 'gmpClickable' | 'content' | 'map' | 'collisionBehavior'> & AdvancedMarkerEventProps & {
+    draggable?: boolean;
+    clickable?: boolean;
+    collisionBehavior?: CollisionBehavior;
+    /**
+     * A className for the content element.
+     * (can only be used with HTML Marker content)
+     */
+    className?: string;
+    /**
+     * Additional styles to apply to the content element.
+     */
+    style?: CSSProperties;
+}>;
+export type AdvancedMarkerRef = google.maps.marker.AdvancedMarkerElement | null;
+export declare const AdvancedMarker: React.ForwardRefExoticComponent<Omit<google.maps.marker.AdvancedMarkerElementOptions, "gmpDraggable" | "gmpClickable" | "content" | "map" | "collisionBehavior"> & AdvancedMarkerEventProps & {
+    draggable?: boolean;
+    clickable?: boolean;
+    collisionBehavior?: CollisionBehavior;
+    /**
+     * A className for the content element.
+     * (can only be used with HTML Marker content)
+     */
+    className?: string;
+    /**
+     * Additional styles to apply to the content element.
+     */
+    style?: CSSProperties;
+} & {
+    children?: React.ReactNode | undefined;
+} & React.RefAttributes<google.maps.marker.AdvancedMarkerElement>>;
+export declare function useAdvancedMarkerRef(): readonly [(m: AdvancedMarkerRef | null) => void, google.maps.marker.AdvancedMarkerElement | null];
+export {};
