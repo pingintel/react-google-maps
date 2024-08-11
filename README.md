@@ -160,3 +160,7 @@ You can also discuss this library on [our Discord server][gmp-discord].
 [gmp-community]: https://developers.google.com/maps/developer-community
 [gmp-discord]: https://discord.gg/f4hvx8Rp2q
 
+
+## Working with Ping Intel Maps
+
+Ping Intel Maps uses this fork as a dependency. If you need a version of this repo built locally to work with ping-maps, process to make it work is explained in `front-end/apps/ping-maps-client/README.md`
