@@ -935,7 +935,6 @@ const useMap = (id = null) => {
   const {
     mapInstances
   } = ctx;
-  console.info('test');
   // if an id is specified, the corresponding map or null is returned
   if (id !== null) return mapInstances[id] || null;
   // otherwise, return the closest ancestor

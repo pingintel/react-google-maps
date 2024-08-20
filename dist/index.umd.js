@@ -1213,7 +1213,6 @@
       return null;
     }
     var mapInstances = ctx.mapInstances;
-    console.info('test');
     // if an id is specified, the corresponding map or null is returned
     if (id !== null) return mapInstances[id] || null;
     // otherwise, return the closest ancestor
